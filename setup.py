@@ -91,6 +91,7 @@ setup(
         'scipy',
         'six',
         'tqdm',
+        'pythainlp',
     ],
     setup_requires=['numpy'],
     tests_require=['nose'],

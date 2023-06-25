@@ -107,7 +107,7 @@ def train_embedding_options(func):
 @click.option('--link-mentions/--no-link-mentions', default=True, help='Whether to detect entity '
               'names and convert them into links')
 @click.option('--tokenizer', default=None, help='The name of a tokenizer used to tokenize a text '
-              'into words', type=click.Choice(['regexp', 'icu', 'mecab', 'jieba']))
+              'into words', type=click.Choice(['regexp', 'icu', 'mecab', 'jieba','pythainlp']))
 @build_dictionary_options
 @build_mention_db_options
 @train_embedding_options
@@ -173,7 +173,7 @@ def build_dump_db(dump_file, out_file, **kwargs):
 @click.argument('out_file', type=click.Path())
 @click.option('--lowercase/--no-lowercase', default=True, help='Whether to lowercase words')
 @click.option('--tokenizer', default=None, help='The name of a tokenizer used to tokenize a text '
-              'into words', type=click.Choice(['regexp', 'icu', 'mecab', 'jieba']))
+              'into words', type=click.Choice(['regexp', 'icu', 'mecab', 'jieba','pythainlp']))
 @build_dictionary_options
 @common_options
 def build_dictionary(dump_db_file, out_file, tokenizer, **kwargs):
@@ -206,7 +206,7 @@ def build_link_graph(dump_db_file, dictionary_file, out_file, **kwargs):
 @click.argument('dictionary_file', type=click.Path(exists=True))
 @click.argument('out_file', type=click.Path())
 @click.option('--tokenizer', default=None, help='The name of a tokenizer used to tokenize a text '
-              'into words', type=click.Choice(['regexp', 'icu', 'mecab', 'jieba']))
+              'into words', type=click.Choice(['regexp', 'icu', 'mecab', 'jieba','pythainlp']))
 @build_mention_db_options
 @common_options
 def build_mention_db(dump_db_file, dictionary_file, out_file, tokenizer, **kwargs):
@@ -231,7 +231,7 @@ def build_mention_db(dump_db_file, dictionary_file, out_file, tokenizer, **kwarg
 @click.option('--mention-db', type=click.Path(exists=True), help='The mention DB file generated '
               'using the build_mention_db command')
 @click.option('--tokenizer', default=None, help='The name of a tokenizer used to tokenize a text '
-              'into words', type=click.Choice(['regexp', 'icu', 'mecab', 'jieba']))
+              'into words', type=click.Choice(['regexp', 'icu', 'mecab', 'jieba','pythainlp']))
 @train_embedding_options
 @common_options
 def train_embedding(dump_db_file, dictionary_file, link_graph, mention_db, tokenizer, sent_detect,

@@ -26,6 +26,9 @@ def get_tokenizer(name, language=None):
     elif name == 'jieba':
         from .jieba_tokenizer import JiebaTokenizer
         return JiebaTokenizer()
+    elif name == 'pythainlp':
+        from .pythainlp_tokenizer import PyThaiNLPTokenizer
+        return PyThaiNLPTokenizer()
     else:
         raise NotImplementedError()
 # -*- coding: utf-8 -*-
